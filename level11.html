@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Level 11</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <script src="./robot-arm.js"></script>
+  <script>
+    var canvas = document.getElementById("canvas");
+    var arm = new RobotArm(canvas);
+    arm.loadLevel("exercise 11");
+    for (var i = 0; i < 9; i++) {
+      arm.moveRight();
+    }
+    for (var i = 0; i < 9; i++) {
+      arm.moveLeft();
+      arm.grab();
+      var log = arm.scan();
+      console.log(log);
+      if (log == 'white') {
+        arm.moveRight();
+        arm.drop();
+        arm.moveLeft();
+      } else {
+        arm.drop();
+      }
+    }
+    arm.run();
+  </script>
+</body>
+
+</html>
