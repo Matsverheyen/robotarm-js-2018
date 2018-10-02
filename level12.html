@@ -12,19 +12,19 @@
     var canvas = document.getElementById("canvas");
     var arm = new RobotArm(canvas);
     arm.loadLevel("exercise 12");
-    for (var i = 0; i < 9; i++) {
-      arm.grab();
-      log = arm.scan();
-      console.log(log);
-      if (log == 'red') {
-        arm.moveRight();
-        arm.drop();
-      } else {
-        arm.drop();
-        arm.moveRight();
-      }
-      //TODO move to right
-    }
+    var BlockCounter = 1;
+            arm.grab();
+            while (arm.scan() != null) {
+                for (var moveRight = 1; moveRight<=BlockCounter; moveRight++) {
+                    arm.moveRight();
+                }
+                    arm.grab();
+                for (var moveLeft = 1; moveLeft<=BlockCounter; moveLeft++) {
+                    arm.moveLeft();
+                }
+                    arm.grab();
+                    var BlockCounter = BlockCounter + 1;
+            }
     arm.run();
   </script>
 </body>

@@ -9,11 +9,27 @@
   <canvas id="canvas" width="800" height="600"></canvas>
   <script src="./robot-arm.js"></script>
   <script>
-    var canvas = document.getElementById("canvas");
-    var arm = new RobotArm(canvas);
-    arm.randomLevel( 1, 8);
-
-    arm.run();
+      var canvas = document.getElementById("canvas");
+      var arm = new RobotArm(canvas);
+      arm.randomLevel(1, 8);
+      var x = 9;
+      var c = 8;
+      for (var i = 0; i < 10; i++) {
+        arm.grab();
+        color = arm.scan();
+        if (color !== 'null') {
+          for (var j = 0; j < c; j++) {
+            arm.moveRight();
+          }
+          arm.drop();
+          x--;
+          for (var a = 0; a < x; a++) {
+            arm.moveLeft();
+          }
+            c--;
+        }
+      }
+      arm.run();
   </script>
 </body>
 
