@@ -13,7 +13,19 @@
     var arm = new RobotArm(canvas);
 
     arm.loadLevel("exercise 9");
-    //TODO
+    for (var i = 1; i < 5; i++) {
+      for (var s = 1; s <= i; s++) {
+        arm.grab();
+        for (var j = 1; j < 6; j++) {
+          arm.moveRight();
+        }
+        arm.drop();
+        for (var x = 1; x < 6; x++) {
+          arm.moveLeft();
+        }
+      }
+      arm.moveRight();
+    }
     arm.run();
   </script>
 </body>
