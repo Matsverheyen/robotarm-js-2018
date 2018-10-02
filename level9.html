@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Level 9</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <script src="./robot-arm.js"></script>
+  <script>
+    var canvas = document.getElementById("canvas");
+    var arm = new RobotArm(canvas);
+
+    arm.loadLevel("exercise 9");
+    //TODO
+    arm.run();
+  </script>
+</body>
+
+</html>
