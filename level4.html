@@ -13,41 +13,10 @@
     var arm = new RobotArm(canvas);
 
     arm.loadLevel("exercise 4");
-
-    arm.grab();
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 3; i++) {
+      arm.grab();
       arm.moveRight();
-    }
-    arm.drop();
-    for (var i = 0; i < 2; i++) {
-      arm.moveLeft();
-    }
-    arm.grab();
-    for (var i = 0; i < 2; i++) {
-      arm.moveRight();
-    }
-    arm.drop();
-    for (var i = 0; i < 2; i++) {
-      arm.moveLeft();
-    }
-    arm.grab();
-    for (var i = 0; i < 1; i++) {
-      arm.moveRight();
-    }
-    arm.drop();
-    for (var i = 0; i < 1; i++) {
-      arm.moveRight();
-    }
-    arm.grab();
-    for (var i = 0; i < 1; i++) {
-      arm.moveLeft();
-    }
-    arm.drop();
-    for (var i = 0; i < 1; i++) {
-      arm.moveRight();
-    }
-    arm.grab();
-    for (var i = 0; i < 1; i++) {
+      arm.drop();
       arm.moveLeft();
     }
     arm.drop();
