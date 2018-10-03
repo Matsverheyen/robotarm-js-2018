@@ -16,10 +16,18 @@
     for (var i = 0; i < 3; i++) {
       arm.grab();
       arm.moveRight();
+      arm.moveRight();
       arm.drop();
       arm.moveLeft();
+      arm.moveLeft();
     }
-    arm.drop();
+    arm.moveRight();
+    for (var j = 0; j < 3; j++) {
+      arm.moveRight();
+      arm.grab()
+      arm.moveLeft();
+      arm.drop();
+    }
     arm.run();
   </script>
 </body>
