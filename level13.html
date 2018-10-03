@@ -12,24 +12,26 @@
       var canvas = document.getElementById("canvas");
       var arm = new RobotArm(canvas);
       arm.randomLevel(1, 8);
-      var x = 9;
-      var c = 8;
-      for (var i = 0; i < 10; i++) {
+      arm.grab();
+      var x = 8;
+      var y = 8;
+      var color = arm.scan();
+      while (color !== null) {
         arm.grab();
         color = arm.scan();
-        if (color !== 'null') {
-          for (var j = 0; j < c; j++) {
+        if (color !== null) {
+          for (var i = 0; i < x; i++) {
             arm.moveRight();
           }
-          arm.drop();
           x--;
-          for (var a = 0; a < x; a++) {
+          arm.drop();
+          for (var j = 0; j < y; j++) {
             arm.moveLeft();
           }
-            c--;
+          y--;
         }
-        //TODO stop when no blocks are seen
-      }
+    }
+
       arm.run();
   </script>
 </body>
