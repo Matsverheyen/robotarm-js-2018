@@ -12,7 +12,28 @@
     var canvas = document.getElementById("canvas");
     var arm = new RobotArm(canvas);
     arm.loadLevel("exercise 12");
-
+    var x = 9;
+    var v = 9;
+    var q = 9;
+    for (var z = 0; z < q; z++) {
+      arm.grab();
+      var color = arm.scan();
+      if (color == 'red') {
+        for (var i = 0; i < v; i++) {
+          arm.moveRight();
+        }
+        q++;
+        arm.drop();
+        for (var j = 0; j < x; j++) {
+          arm.moveLeft();
+        }
+      } else {
+        arm.drop();
+        arm.moveRight();
+        x--;
+        v--;
+      }
+    }
     arm.run();
   </script>
 </body>
